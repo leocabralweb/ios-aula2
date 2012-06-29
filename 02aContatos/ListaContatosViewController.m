@@ -59,6 +59,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     NSLog(@"Contatos cadastrados: %d", [self.contatos count]);
+    [self.tableView reloadData];
 }
 
 
