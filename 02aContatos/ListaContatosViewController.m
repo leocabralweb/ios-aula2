@@ -15,7 +15,7 @@
 
 @implementation ListaContatosViewController
 
-@synthesize contatos;
+@synthesize contatos, contatos_ordenados;
 
 - (id) init
 {
@@ -47,6 +47,7 @@
     FormularioContatoViewController *form = [[FormularioContatoViewController alloc] init];
     
     form.contatos = self.contatos;
+    form.contatos_ordenados = self.contatos_ordenados;
     
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:form];
     
@@ -58,7 +59,8 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    NSLog(@"Contatos cadastrados: %d", [self.contatos count]);
+    NSLog(@"Contatos cadastrados: %@", self.contatos_ordenados);
+    [self.tableView reloadData];
 }
 
 

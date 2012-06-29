@@ -12,7 +12,7 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize contatos;
+@synthesize contatos, contatos_ordenados;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,6 +25,9 @@
     
     self.contatos = [[NSMutableArray alloc] init];    
     lista.contatos = self.contatos;
+    
+    self.contatos_ordenados = [[NSMutableDictionary alloc] init];
+    lista.contatos_ordenados = self.contatos_ordenados;
     
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:lista];
     self.window.rootViewController = navigation;

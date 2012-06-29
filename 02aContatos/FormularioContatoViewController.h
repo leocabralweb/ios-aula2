@@ -18,6 +18,7 @@
 @property IBOutlet UITextField *site;
 
 @property (weak) NSMutableArray *contatos;
+@property (weak) NSMutableDictionary *contatos_ordenados;
 
 -(id) init;
 -(void) cancela;

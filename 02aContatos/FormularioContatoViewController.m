@@ -16,7 +16,7 @@
 @implementation FormularioContatoViewController
 
 @synthesize nome, telefone, email, endereco, site;
-@synthesize contatos;
+@synthesize contatos, contatos_ordenados;
 
 -(id)init 
 {
@@ -93,6 +93,7 @@
 -(void) criaContato
 {
     // Utilizar apenas "contatos" iria acessar diretamente a variavel, sem passar pelo getter
+    [self gravaContatoOrdenado:[self pegaDadosDoFormulario]];
     [self.contatos addObject:[self pegaDadosDoFormulario]];
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -118,6 +119,18 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void) gravaContatoOrdenado:(Contato *)novo_contato
+{
+    NSString *letra = [novo_contato.nome substringWithRange:NSMakeRange(0, 1)];
+    NSMutableArray *itens = [self.contatos_ordenados objectForKey:letra];
+    
+    if(!itens)
+        itens = [[NSMutableArray alloc] init];
+    
+    [itens addObject:novo_contato];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

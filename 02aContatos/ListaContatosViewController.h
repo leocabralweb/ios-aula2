@@ -11,6 +11,7 @@
 @interface ListaContatosViewController : UITableViewController
 
 @property (weak) NSMutableArray *contatos;
+@property (weak) NSMutableDictionary *contatos_ordenados;
 
 - (void) exibeFormulario;
 
