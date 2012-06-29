@@ -12,7 +12,7 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize contatos;
+@synthesize contatos, arquivoContatos;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,9 +21,15 @@
     
     /* ==================================== */
     
-    ListaContatosViewController *lista = [[ListaContatosViewController alloc] init];
+    self.arquivoContatos = [NSString stringWithFormat:@"%@/f_contatos", 
+                            [self documentsDirectory]];
     
-    self.contatos = [[NSMutableArray alloc] init];    
+    self.contatos = [NSKeyedUnarchiver unarchiveObjectWithFile:arquivoContatos];
+    
+    if(!self.contatos)
+        self.contatos = [[NSMutableArray alloc] init];    
+    
+    ListaContatosViewController *lista = [[ListaContatosViewController alloc] init];
     lista.contatos = self.contatos;
     
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:lista];
@@ -37,16 +43,34 @@
     return YES;
 }
 
+-(NSString *)documentsDirectory
+{
+    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir = [dirs objectAtIndex:0];
+    
+    NSLog(@"%@", documentsDir);
+    
+    return documentsDir;
+}
+
+
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    [NSKeyedArchiver archiveRootObject:self.contatos 
+                                toFile:self.arquivoContatos];
+    
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+}
+
+
+/* ------------------------------------------------------------------------- */
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
