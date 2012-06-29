@@ -7,17 +7,33 @@
 //
 
 #import "AppDelegate.h"
+#import "ListaContatosViewController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize contatos;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    /* ==================================== */
+    
+    ListaContatosViewController *lista = [[ListaContatosViewController alloc] init];
+    
+    self.contatos = [[NSMutableArray alloc] init];    
+    lista.contatos = self.contatos;
+    
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:lista];
+    self.window.rootViewController = navigation;
+    
+    /* ==================================== */
+    
+    
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

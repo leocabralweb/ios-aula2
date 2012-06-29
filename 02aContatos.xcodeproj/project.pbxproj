@@ -13,6 +13,10 @@
 		F5C4C41F159BB444005A09AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5C4C41D159BB444005A09AE /* InfoPlist.strings */; };
 		F5C4C421159BB444005A09AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4C420159BB444005A09AE /* main.m */; };
 		F5C4C425159BB444005A09AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4C424159BB444005A09AE /* AppDelegate.m */; };
+		F5C4C43C159BBC98005A09AE /* FormularioContatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4C43A159BBC98005A09AE /* FormularioContatoViewController.m */; };
+		F5C4C43D159BBC98005A09AE /* FormularioContatoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5C4C43B159BBC98005A09AE /* FormularioContatoViewController.xib */; };
+		F5C4C440159BD0E1005A09AE /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4C43F159BD0E1005A09AE /* Contato.m */; };
+		F5C4C448159BE6FD005A09AE /* ListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C4C447159BE6FC005A09AE /* ListaContatosViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +24,19 @@
 		F5C4C414159BB444005A09AE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F5C4C416159BB444005A09AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5C4C418159BB444005A09AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F5C4C41C159BB444005A09AE /* 02aContatos-Info.plist */ = {isa = PBXFileReference; path = "02aContatos-Info.plist"; sourceTree = "<group>"; };
+		F5C4C41C159BB444005A09AE /* 02aContatos-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "02aContatos-Info.plist"; sourceTree = "<group>"; };
 		F5C4C41E159BB444005A09AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F5C4C420159BB444005A09AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F5C4C422159BB444005A09AE /* 02aContatos-Prefix.pch */ = {isa = PBXFileReference; path = "02aContatos-Prefix.pch"; sourceTree = "<group>"; };
-		F5C4C423159BB444005A09AE /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		F5C4C422159BB444005A09AE /* 02aContatos-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "02aContatos-Prefix.pch"; sourceTree = "<group>"; };
+		F5C4C423159BB444005A09AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5C4C424159BB444005A09AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F5C4C439159BBC98005A09AE /* FormularioContatoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormularioContatoViewController.h; sourceTree = "<group>"; };
+		F5C4C43A159BBC98005A09AE /* FormularioContatoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormularioContatoViewController.m; sourceTree = "<group>"; };
+		F5C4C43B159BBC98005A09AE /* FormularioContatoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormularioContatoViewController.xib; sourceTree = "<group>"; };
+		F5C4C43E159BD0E1005A09AE /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
+		F5C4C43F159BD0E1005A09AE /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
+		F5C4C446159BE6FC005A09AE /* ListaContatosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaContatosViewController.h; sourceTree = "<group>"; };
+		F5C4C447159BE6FC005A09AE /* ListaContatosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaContatosViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +85,13 @@
 			children = (
 				F5C4C423159BB444005A09AE /* AppDelegate.h */,
 				F5C4C424159BB444005A09AE /* AppDelegate.m */,
+				F5C4C439159BBC98005A09AE /* FormularioContatoViewController.h */,
+				F5C4C43A159BBC98005A09AE /* FormularioContatoViewController.m */,
+				F5C4C43B159BBC98005A09AE /* FormularioContatoViewController.xib */,
+				F5C4C43E159BD0E1005A09AE /* Contato.h */,
+				F5C4C43F159BD0E1005A09AE /* Contato.m */,
+				F5C4C446159BE6FC005A09AE /* ListaContatosViewController.h */,
+				F5C4C447159BE6FC005A09AE /* ListaContatosViewController.m */,
 				F5C4C41B159BB444005A09AE /* Supporting Files */,
 			);
 			path = 02aContatos;
@@ -141,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5C4C41F159BB444005A09AE /* InfoPlist.strings in Resources */,
+				F5C4C43D159BBC98005A09AE /* FormularioContatoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +172,9 @@
 			files = (
 				F5C4C421159BB444005A09AE /* main.m in Sources */,
 				F5C4C425159BB444005A09AE /* AppDelegate.m in Sources */,
+				F5C4C43C159BBC98005A09AE /* FormularioContatoViewController.m in Sources */,
+				F5C4C440159BD0E1005A09AE /* Contato.m in Sources */,
+				F5C4C448159BE6FD005A09AE /* ListaContatosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +278,7 @@
 				F5C4C42A159BB444005A09AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
