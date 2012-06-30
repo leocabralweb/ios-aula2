@@ -21,13 +21,14 @@
 {
     if (self = [super init]) {
         
-        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] 
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] 
                                       initWithBarButtonSystemItem: UIBarButtonSystemItemAdd 
                                       target: self
                                       action: @selector(exibeFormulario)];
         
         self.navigationItem.title = @"Contatos";
-        self.navigationItem.rightBarButtonItem = barButton;
+        self.navigationItem.rightBarButtonItem = rightButton;
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
     }
     
     return self;
@@ -92,6 +93,23 @@
     cell.textLabel.text = contato.nome;
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [self.contatos removeObjectAtIndex:indexPath.row];
+        NSArray *itens = [NSArray arrayWithObject:indexPath];
+        
+        [self.tableView deleteRowsAtIndexPaths:itens 
+                              withRowAnimation:UITableViewRowAnimationFade];
+        
+        // Com o reloadData o efeito fica quebrado. 
+        // Sem ele, a quantidade de itens declarados na tableView fica inconsistente
+        [self.tableView reloadData]; 
+    }
 }
 
 /* =============================== */
