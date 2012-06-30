@@ -17,9 +17,11 @@
 @property IBOutlet UITextField *endereco;
 @property IBOutlet UITextField *site;
 
+@property (strong) Contato *contato;
 @property (weak) NSMutableArray *contatos;
 
 -(id) init;
+-(id)initWithContato:(Contato *)_contato;
 -(void) cancela;
 -(Contato *) pegaDadosDoFormulario;
 -(void)criaContato;

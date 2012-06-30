@@ -16,7 +16,7 @@
 @implementation FormularioContatoViewController
 
 @synthesize nome, telefone, email, endereco, site;
-@synthesize contatos;
+@synthesize contatos, contato;
 
 -(id)init 
 {
@@ -31,7 +31,7 @@
                                        action: @selector(cancela)];
         
         UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] 
-                                        initWithTitle:@"Salvar" 
+                                        initWithTitle:@"Criar" 
                                         style:UIBarButtonItemStylePlain 
                                         target:self 
                                         action:@selector(criaContato)];
@@ -78,16 +78,24 @@
      [contato setSite:[site text]];
      */
     
-    Contato *contato = [[Contato alloc] init];
-    contato.nome = nome.text;
-    contato.telefone = telefone.text;
-    contato.email = email.text;
-    contato.endereco = endereco.text;
-    contato.site = site.text;
+    if(!self.contato)
+        self.contato = [[Contato alloc] init];
     
-    NSLog(@"Novo Contato: %@", contato);
+    self.contato.nome = nome.text;
+    self.contato.telefone = telefone.text;
+    self.contato.email = email.text;
+    self.contato.endereco = endereco.text;
+    self.contato.site = site.text;
     
-    return contato;
+    NSLog(@"Novo Contato: %@", self.contato);
+    
+    return self.contato;
+}
+
+-(void) alteraContato
+{
+    self.contato = [self pegaDadosDoFormulario];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 -(void) criaContato
@@ -95,6 +103,41 @@
     // Utilizar apenas "contatos" iria acessar diretamente a variavel, sem passar pelo getter
     [self.contatos addObject:[self pegaDadosDoFormulario]];
     [self dismissModalViewControllerAnimated:YES];
+}
+
+-(id)initWithContato:(Contato *)_contato
+{
+    self = [self init];
+    
+    if(self)
+    {
+        self.contato = _contato;
+        
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] 
+                                        initWithTitle:@"Editar" 
+                                        style:UIBarButtonItemStylePlain 
+                                        target:self 
+                                        action:@selector(alteraContato)];
+        
+        self.navigationItem.rightBarButtonItem = rightButton;
+        self.navigationItem.title = @"Editando contato";
+    }
+    
+    return self;
+}
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    if(self.contato)
+    {
+        self.nome.text      = self.contato.nome;
+        self.telefone.text  = self.contato.telefone;
+        self.email.text     = self.contato.email;
+        self.endereco.text  = self.contato.endereco;
+        self.site.text      = self.contato.site;
+    }
 }
 
 /* Default ======================================================== */
@@ -107,14 +150,9 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
 - (void)viewDidUnload
 {
+    self.contato = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

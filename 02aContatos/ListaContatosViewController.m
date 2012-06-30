@@ -112,6 +112,30 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Contato *contato = [self.contatos objectAtIndex:indexPath.row];
+    FormularioContatoViewController *form = [[FormularioContatoViewController alloc] initWithContato:contato];
+    
+    form.contatos = contatos;
+    
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:form];
+    
+    navigation.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    [self.navigationController presentModalViewController:navigation animated:YES];
+    
+    // Present
+    
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+}
+
 /* =============================== */
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -188,16 +212,5 @@
 */
 
 #pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 @end
